@@ -1,0 +1,177 @@
+<!doctype html>
+<html>
+<head>
+  <title>Ryancare - The American Health Care Act</title>
+  <script src="jquery.js"></script>
+  <style type="text/css">
+  body {
+    background: url(flag.jpg) no-repeat center center fixed;
+    background-size: cover;
+  }
+  #ryan {
+    background-image: url(ryan-laugh-soft.png);
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 100%;
+    width: 100%; height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+  }
+  </style>
+
+  <style>
+#laserold {
+    box-shadow: rgb(255, 0, 0) 0px 0px 5px 1px;
+    height: 6px;
+    left: 5px;
+    opacity: 0.7;
+    right: 59.7143px;
+    width: 90px;
+    z-index: -11;
+    perspective-origin: 45px 3px;
+    transform: matrix(1, 0, 0, 1, -708.192, 0);
+    transform-origin: 45px 3px;
+    animation: laser 0.8s ease 0s infinite normal none running;
+    background: rgb(255, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
+    border-radius: 60% 60% 60% 60%;
+    font: normal normal normal normal 16px / normal "Times New Roman";
+}
+/*
+@-webkit-keyframes laser { 
+    0% {
+        -webkit-transform: translate(4px, 0px)
+        }
+
+    100% {
+        -webkit-transform: translate(-1000px, 0px)
+        }
+    }
+
+@-webkit-keyframes laser { 
+    0% {
+        -moz-transform: translate(4px, 0px)
+        }
+
+    100% {
+        -moz-transform: translate(-1000px, 0px)
+        }
+    }
+
+@-webkit-keyframes laser { 
+    0% {
+        -ms-transform: translate(4px, 0px)
+        }
+
+    100% {
+        -ms-transform: translate(-1000px, 0px)
+        }
+    }
+
+@keyframes laser { 
+    0% {
+        transform: translate(4px, 0px)
+        }
+
+    100% {
+        transform: translate(-1000px, 0px)
+        }
+}
+*/
+    #laser {
+      /*background-color: green;
+      z-index: 9;
+      width: 4px;
+      height: 4px;
+      position: absolute;
+      left: 40px;
+      top: 40px;*/
+      transform-origin: top left;
+      position: absolute;
+
+      box-shadow: rgb(255, 0, 0) 0px 0px 5px 1px;
+      opacity: 0.7;
+      perspective-origin: 45px 3px;
+      /*transform: matrix(1, 0, 0, 1, -708.192, 0);
+      transform-origin: 45px 3px;*/
+      background: rgb(255, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
+      border-radius: 30% 70% 70% 30%;
+      font: normal normal normal normal 16px / normal "Times New Roman";
+      height: 10px;
+    }
+
+    #endpoint {
+      background-color: orange;
+      z-index: 9;
+      width: 4px;
+      height: 4px;
+      position: absolute;
+      left: 1px;
+      top: 1px;
+    }
+ </style>
+
+ <script>
+ $(function() {
+  var top, left;
+  resizeHandler = function() {
+    var h = $(document).height();
+    top = parseInt(0.08670520231213873 * h)
+    left = parseInt(0.2119460500963391 * h);
+    console.log("top", top, "left", left);
+    $("#laser").css({
+      "top": top+"px",
+      "left": left+"px"
+    })
+  };
+  $(window).resize(resizeHandler);
+  resizeHandler();
+
+  moveHandler = function(event) {
+    event = event || window.event;
+     if(event.pageX == null && event.clientX != null) {
+          eventDoc = (event.target && event.target.ownerDocument) || document;
+          doc = eventDoc.documentElement;
+          body = eventDoc.body;
+
+          event.pageX = event.clientX +
+            (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+            (doc && doc.clientLeft || body && body.clientLeft || 0);
+          event.pageY = event.clientY +
+            (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
+            (doc && doc.clientTop  || body && body.clientTop  || 0 );
+      }
+
+      var x = event.pageX;
+      var y = event.pageY;
+      updateLaser(x, y);
+
+  }
+
+  updateLaser = function(x, y) {
+    $("#endpoint").css({
+      "top": y+"px",
+      "left": x+"px"
+    });
+    var dx = (x-left);
+    var dy = (y-top);
+    console.debug("DX", dx, "DY", dy);
+    var len = Math.sqrt(dx*dx + dy*dy);
+    var ang = Math.atan2(dy, dx);
+    var deg = ang * (180 / Math.PI);
+    $("#laser").css({
+      "width": len,
+      "transform": "rotate("+deg+"deg)"
+    })
+  }
+  document.onmousemove = moveHandler;
+ })
+ </script>
+
+</head>
+<body>
+  <div id="ryan"></div>
+  <div id="laser"></div>
+  <div id="eyes"></div>
+  <div id="endpoint"></div>
+</body>
+</html>
