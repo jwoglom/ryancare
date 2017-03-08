@@ -237,9 +237,9 @@ h2 > b {
 
 #endpoint.big {
   animation: burn 1.5s linear infinite alternate,
-             fire-big 3s linear 1 alternate;
+             fire-big 1.5s linear 1 alternate;
   -webkit-animation: burn 1.5s linear infinite alternate,
-             fire-big 3s linear 1 alternate; 
+             fire-big 1.5s linear 1 alternate; 
 }
 
 #bill {
@@ -364,7 +364,7 @@ h2 > b {
 
   addPages = function() {
     var num_pages = 50;
-    for(var i=0; i<=num_pages; i++) {
+    for(var i=0; i<num_pages; i++) {
       $("section#bill").append("<img src='aca/aca-"+i+".png' class='bill-pic' data-id='"+i+"' />")
     }
     var billstat = Array(num_pages).fill(0);
@@ -390,7 +390,7 @@ h2 > b {
           updateNumber();
           //console.debug(id, "deleted", billstat[id]);
         }
-      }, (3000/100) * 10);
+      }, (1500/100) * 10);
     }, function() {
       var id = parseInt($(this).attr("data-id"));
       $(this).css({"animation-play-state": "paused"});
