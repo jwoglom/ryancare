@@ -374,7 +374,7 @@ h2 > b {
       var id = parseInt($(this).attr("data-id"));
       $(this).addClass("page-burn");
       $(this).css({"animation-play-state": "running"});
-      $("#endpoint").addClass("big");
+      $("#endpoint").removeClass("big").addClass("big");
       if(billint[id]) clearInterval(billint[id]);
       var $t = $(this);
       billcur = id;
