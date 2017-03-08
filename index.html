@@ -117,7 +117,7 @@ body {
 #ryan {
   background-image: url(ryan-laugh-soft.png);
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: left center;
   background-size: auto 100%;
   width: 30%; height: 100%;
   position: absolute;
@@ -254,7 +254,7 @@ h2 > b {
     var h = $(document).height();
     top = parseInt(0.08670520231213873 * h)
     left = parseInt(0.2119460500963391 * h);
-    console.log("top", top, "left", left);
+    //console.log("top", top, "left", left);
     $("#laser").css({
       "top": top+"px",
       "left": left+"px"
@@ -294,7 +294,7 @@ h2 > b {
     //y -= 2;
     var dx = (x-left);
     var dy = (y-top);
-    console.debug("DX", dx, "DY", dy);
+    //console.debug("DX", dx, "DY", dy);
     var len = Math.sqrt(dx*dx + dy*dy);
     var ang = Math.atan2(dy, dx);
     var deg = ang * (180 / Math.PI);
@@ -328,7 +328,7 @@ h2 > b {
         if(billstat[id] >= 100) {
           clearInterval(billint[id]);
           $t.addClass("deleted");
-          console.debug(id, "deleted", billstat[id]);
+          //console.debug(id, "deleted", billstat[id]);
         }
       }, (3000/100) * 25);
     }, function() {
