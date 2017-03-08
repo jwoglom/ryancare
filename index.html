@@ -209,14 +209,14 @@ h2 > b {
 }
 
 #bill {
-  height: calc(100% - 230px);
+  height: calc(100% - 210px);
   overflow-y: auto;
 }
 
 #bill .bill-pic {
   background-color: white;
   border: 1px solid black;
-  margin: 10px;
+  margin: 1% 1%;
   border-radius: 3px;
 }
 
@@ -324,7 +324,6 @@ h2 > b {
       // $(this).removeClass("page-burn");
       $("#endpoint").removeClass("big");
       if(billint[id]) clearInterval(billint[id]);
-      $("#endpoint").removeClass("big");
     })
   }
 
@@ -348,5 +347,7 @@ h2 > b {
     <section id="bill">
     </section>
   </div>
+
+  <audio src="ryancare.mp3" autoplay controls=0 style="display: none"></audio>
 </body>
 </html>
