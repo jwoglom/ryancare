@@ -3,23 +3,60 @@
 <head>
   <title>Ryancare - The American Health Care Act</title>
   <script src="jquery.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans|Open+Sans:400i|Open+Sans:800b" rel="stylesheet" />
   <style type="text/css">
-  body {
-    background: url(flag.jpg) no-repeat center center fixed;
-    background-size: cover;
-  }
-  #ryan {
-    background-image: url(ryan-laugh-soft.png);
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: auto 100%;
-    width: 100%; height: 100%;
-    position: absolute;
-    top: 0; left: 0;
-  }
-  </style>
+body {
+  background: url(flag.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+#ryan {
+  background-image: url(ryan-laugh-soft.png);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: auto 100%;
+  width: 100%; height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+}
 
-  <style>
+#content {
+  position: absolute;
+  top: 0;
+  left: 30%;
+  width: 70%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background: rgba(255,255,255,0.7);
+}
+
+h1 {
+  font-family: 'Changa One', cursive;
+  text-align: center;
+  font-size: 140px;
+  margin: 0;
+}
+h3 {
+  font-family: 'Open Sans', sans-serif;
+  font-style: italic;
+  font-size: 25px;
+  text-align: center;
+  margin: 0;
+  margin-top: -15px;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  font-size: 25px;
+  margin: 0;
+  font-weight: normal;
+}
+
+h2 > b {
+  font-weight: 800;
+}
 #laserold {
     box-shadow: rgb(255, 0, 0) 0px 0px 5px 1px;
     height: 6px;
@@ -100,6 +137,7 @@
     }
 
     #endpoint {
+      display: none;
       background-color: orange;
       z-index: 9;
       width: 4px;
@@ -152,6 +190,9 @@
       "top": y+"px",
       "left": x+"px"
     });
+    // appear to be more closely on the cursor
+    x += 4;
+    y -= 2;
     var dx = (x-left);
     var dy = (y-top);
     console.debug("DX", dx, "DY", dy);
@@ -173,5 +214,12 @@
   <div id="laser"></div>
   <div id="eyes"></div>
   <div id="endpoint"></div>
+
+
+  <div id="content">
+    <h1>RYANCARE</h1>
+    <h3>The American Health Care Act</h3>
+    <h2>brought to you by <b>PAUL RYAN</b> and the <b>REPUBLICAN PARTY</b></h2>
+  </div>
 </body>
 </html>
