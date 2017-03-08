@@ -341,11 +341,12 @@ h2 > b {
   document.onmousemove = moveHandler;
 
   addPages = function() {
-    for(var i=0; i<66; i++) {
-      $("section#bill").append("<img src='ahca/ahca-"+i+".png' class='bill-pic' data-id='"+i+"' />")
+    var num_pages = 50;
+    for(var i=0; i<=num_pages; i++) {
+      $("section#bill").append("<img src='aca/aca-"+i+".png' class='bill-pic' data-id='"+i+"' />")
     }
-    var billstat = Array(67).fill(0);
-    var billint = Array(67).fill(0);
+    var billstat = Array(num_pages).fill(0);
+    var billint = Array(num_pages).fill(0);
     var billcur = -1;
     $("section#bill .bill-pic").hover(function() {
       var id = parseInt($(this).attr("data-id"));
@@ -376,6 +377,21 @@ h2 > b {
   }
 
   addPages();
+
+  var h2s = ["Brought to you by <b>PAUL RYAN</b> and the <b>REPUBLICAN PARTY</b>",
+             "We're moving forward with fiscally responsible legislation to <b>deliver relief</b> from Obamacare",
+             "It's either this or the iPhone. Choose wisely.",
+             "We will <b>REPEAL</b> and <b>REPLACE</b> <u>every word</u> of the ACA.",
+             "We will get <b>all 218 votes</b> to pass this bill.",
+             "Doing big thing is never easy. But we have made a promise."
+            ];
+  var h2i = 1;
+  var h2int = setInterval(function() {
+    var st = h2s[(h2i++)%(h2s.length)];
+    $("#h2").html(st);
+    console.debug(st);
+  }, 5 * 1000);
+
  })
  </script>
 
@@ -390,7 +406,7 @@ h2 > b {
   <div id="content">
     <h1 class="text-burn">RYANCARE</h1>
     <h3>The American Health Care Act</h3>
-    <h2>brought to you by <b>PAUL RYAN</b> and the <b>REPUBLICAN PARTY</b></h2>
+    <h2 id="h2">brought to you by <b>PAUL RYAN</b> and the <b>REPUBLICAN PARTY</b></h2>
 
     <section id="bill">
     </section>
