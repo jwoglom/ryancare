@@ -293,12 +293,25 @@ h2 > b {
   box-sizing: border-box;
   padding: 10px;
   padding-bottom: 0;
+
+  cursor: pointer;
 }
 
 #number-destroyed span {
   font-family: 'Changa One', cursive;
   font-size: 70px;
   margin-top: 10px;
+}
+
+#number-destroyed small {
+  display: block;
+  font-size: 20px;
+  margin-top: -5px;
+  font-weight: bold;
+}
+
+section#completed-bill {
+  display: none;
 }
 
 
@@ -363,7 +376,8 @@ h2 > b {
   document.onmousemove = moveHandler;
 
   addPages = function() {
-    var num_pages = 50;
+    var num_pages = (z=location.search.split('num=')).length > 1 ? parseInt(z[1]) : 50;
+    window.num_pages = num_pages;
     for(var i=0; i<num_pages; i++) {
       $("section#bill").append("<img src='aca/aca-"+i+".png' class='bill-pic' data-id='"+i+"' />")
     }
@@ -404,7 +418,16 @@ h2 > b {
   updateNumber = function() {
     $("#number-destroyed").show();
     $("#number-destroyed span").html(++updated_number);
+    if(updated_number >= window.num_pages) {
+      toggleGame();
+    }
   }
+
+  toggleGame = function() {
+    $("section#bill, section#completed-bill").toggle();
+  }
+
+  $("#number-destroyed").click(toggleGame);
 
   addPages();
 
@@ -436,6 +459,8 @@ h2 > b {
   <div id="number-destroyed">
     PAGES OF OBAMACARE DESTROYED:<br />
     <span>0</span>
+    <br />
+    <small>(CLICK HERE TO LEARN MORE)</small>
   </div>
 
 
@@ -445,6 +470,27 @@ h2 > b {
     <h2 id="h2">brought to you by <b>PAUL RYAN</b> and the <b>REPUBLICAN PARTY</b></h2>
 
     <section id="bill">
+    </section>
+
+    <section id="completed-bill">
+        <br />
+        <br />
+        <br />
+        <h2>YOU JUST <b>DESTROYED THE AFFORDABLE CARE ACT.</b></h2>
+        <h2>DON'T LET CONGRESSIONAL REPUBLICANS DO THE SAME.</h2>
+        <br />
+        <br />
+        <h2>CALL YOUR <b>MEMBER OF CONGRESS</b> AND TELL THEM TO <b>SAVE THE AFFORDABLE CARE ACT.</b></h2>
+        <br />
+        <br />
+        <center>
+            <button style="zoom:3" onclick="location.href='https://whoaremyrepresentatives.org/?ref=ryan.care'">CALL YOUR REPRESENTATIVES</button>
+            <br />
+            <br />
+            <br />
+            <button style="zoom:2" onclick="toggleGame()">KEEP PLAYING</button>
+        </center>
+
     </section>
   </div>
 
