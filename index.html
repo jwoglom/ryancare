@@ -378,20 +378,21 @@ h2 > b {
 
   addPages();
 
-  var h2s = ["Brought to you by <b>PAUL RYAN</b> and the <b>REPUBLICAN PARTY</b>",
+  var h2s = ["Brought to you by <b>PAUL RYAN</b> and the <b>REPUBLICAN PARTY</b>.",
              "We're moving forward with fiscally responsible legislation to <b>deliver relief</b> from Obamacare.",
              "It's either this or the iPhone. Choose wisely.",
-             "We will <b>REPEAL</b> and <b>REPLACE</b> <u>every word</u> of the ACA.",
+             "We will <b>REPEAL</b> and <b>REPLACE</b> <u>every word</u> of the Affordable Care Act.",
+             "(especially the \"Affordable.\")",
              "We will get <b>all 218 votes</b> to pass this bill.",
-             "Doing big thing is never easy. But we have <b>made a promise to the American people</b>.",
-             "We need leadership. We don't need a doubling down on the failed politics of the past."
+             "Doing big things is never easy. But we have <b>made a promise to the American people</b>.",
+             "<b>We need leadership</b>. We don't need a doubling down on the failed politics of the past."
             ];
   var h2i = 1;
   var h2int = setInterval(function() {
     var st = h2s[(h2i++)%(h2s.length)];
     $("#h2").html(st);
     console.debug(st);
-  }, 10 * 1000);
+  }, 6 * 1000);
 
  })
  </script>
