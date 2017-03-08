@@ -427,6 +427,16 @@ section#completed-bill {
     $("section#bill, section#completed-bill").toggle();
   }
 
+  keepPlaying = function() {
+    if(window.updated_number >= window.num_pages) {
+      window.updated_number = 0;
+      $("#number-destroyed span").html("0");
+      $(".bill-pic").remove();
+      addPages();
+    }
+    toggleGame();
+  }
+
   $("#number-destroyed").click(toggleGame);
 
   addPages();
@@ -488,7 +498,7 @@ section#completed-bill {
             <br />
             <br />
             <br />
-            <button style="zoom:2" onclick="toggleGame()">KEEP PLAYING</button>
+            <button style="zoom:2" onclick="keepPlaying()">KEEP PLAYING</button>
         </center>
 
     </section>
