@@ -2,9 +2,114 @@
 <html>
 <head>
   <title>Ryancare - The American Health Care Act</title>
-  <script src="jquery.js"></script>
+  <script type="text/javascript" src="jquery.js"></script>
   <link href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans|Open+Sans:400i|Open+Sans:800b" rel="stylesheet" />
   <style type="text/css">
+@keyframes text-burn {
+  from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+  45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+  70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+  to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }            
+}
+
+@-webkit-keyframes text-burn {
+  from { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+  45%  { text-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+  70%  { text-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+  to   { text-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }            
+}
+
+@keyframes burn {
+  from { box-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+  45%  { box-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+  70%  { box-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+  to   { box-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }            
+}
+
+@-webkit-keyframes burn {
+  from { box-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+  45%  { box-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+  70%  { box-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+  to   { box-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }            
+}
+
+@keyframes bg-burn {
+  from { background-color: #fefcc9;
+         box-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+  45%  { background-color: #feec85;
+         box-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+  70%  { background-color: #ffae34;
+         box-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+  to   { background-color: #973716;
+         box-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }
+  /*   { background-color: #451b0e; }*/
+}
+
+@-webkit-keyframes bg-burn {
+  from { background-color: #fefcc9;
+         box-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .4em #ffae34, .2em -.3em .3em #ec760c, -.2em -.4em .4em #cd4606, .1em -.5em .7em #973716, .1em -.7em .7em #451b0e; }
+  45%  { background-color: #feec85;
+         box-shadow: .1em -.2em .5em #fefcc9, .15em 0 .4em #feec85, -.1em -.25em .5em #ffae34, .15em -.45em .5em #ec760c, -.1em -.5em .6em #cd4606, 0 -.8em .6em #973716, .2em -1em .8em #451b0e; }
+  70%  { background-color: #ffae34;
+         box-shadow: -.1em 0 .3em #fefcc9, .1em -.1em .3em #feec85, -.2em -.2em .6em #ffae34, .2em -.3em .4em #ec760c, -.2em -.4em .7em #cd4606, .1em -.5em .7em #973716, .1em -.7em .9em #451b0e; }
+  to   { background-color: #973716;
+         box-shadow: -.1em -.2em .6em #fefcc9, -.15em 0 .6em #feec85, .1em -.25em .6em #ffae34, -.15em -.45em .5em #ec760c, .1em -.5em .6em #cd4606, 0 -.8em .6em #973716, -.2em -1em .8em #451b0e; }
+  /*   { background-color: #451b0e; }*/         
+}
+
+
+@keyframes fire-big {
+  from {  width: 10px;
+          height: 10px;
+          border-radius: 4px;
+          margin: -3px -3px; }
+
+  to {    width: 40px;
+          height: 40px;
+          margin: -12px -12px;
+          border-radius: 16px; }
+}
+
+@-webkit-keyframes fire-big {
+  from {  width: 10px;
+          height: 10px;
+          border-radius: 4px;
+          margin: -3px -3px; }
+
+  to {    width: 40px;
+          height: 40px;
+          margin: -12px -12px;
+          border-radius: 16px; }
+}
+
+@keyframes page-burn {
+  from {  background-color: white; }
+
+  to {    background-color: #cb5c13; }
+}
+
+@-webkit-keyframes page-burn {
+  from {  background-color: white; }
+
+  to {    background-color: #cb5c13; }
+}
+
+
+.burn {
+  animation: burn 1.5s linear infinite alternate;
+  -webkit-animation: burn 1.5s linear infinite alternate; 
+}
+
+.text-burn {
+  animation: text-burn 1.5s linear infinite alternate;
+  -webkit-animation: text-burn 1.5s linear infinite alternate; 
+}
+
+.bg-burn {
+  animation: bg-burn 1.5s linear infinite alternate;
+  -webkit-animation: bg-burn 1.5s linear infinite alternate; 
+}
+
 body {
   background: url(flag.jpg) no-repeat center center fixed;
   background-size: cover;
@@ -57,95 +162,70 @@ h2 {
 h2 > b {
   font-weight: 800;
 }
-#laserold {
-    box-shadow: rgb(255, 0, 0) 0px 0px 5px 1px;
-    height: 6px;
-    left: 5px;
-    opacity: 0.7;
-    right: 59.7143px;
-    width: 90px;
-    z-index: -11;
-    perspective-origin: 45px 3px;
-    transform: matrix(1, 0, 0, 1, -708.192, 0);
-    transform-origin: 45px 3px;
-    animation: laser 0.8s ease 0s infinite normal none running;
-    background: rgb(255, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
-    border-radius: 60% 60% 60% 60%;
-    font: normal normal normal normal 16px / normal "Times New Roman";
+
+#laser {
+  transform-origin: top left;
+  position: absolute;
+
+  box-shadow: rgb(255, 0, 0) 0px 0px 5px 1px;
+  opacity: 0.7;
+  perspective-origin: 45px 3px;
+  /*transform: matrix(1, 0, 0, 1, -708.192, 0);
+  transform-origin: 45px 3px;*/
+  background: rgba(236, 118, 12, 0.8) none repeat scroll 0% 0% / auto padding-box border-box;
+  border-radius: 30% 4px 4px 40%;
+  font: normal normal normal normal 16px / normal "Times New Roman";
+  height: 10px;
+
+  z-index: 998;
+  pointer-events: none;
 }
-/*
-@-webkit-keyframes laser { 
-    0% {
-        -webkit-transform: translate(4px, 0px)
-        }
 
-    100% {
-        -webkit-transform: translate(-1000px, 0px)
-        }
-    }
-
-@-webkit-keyframes laser { 
-    0% {
-        -moz-transform: translate(4px, 0px)
-        }
-
-    100% {
-        -moz-transform: translate(-1000px, 0px)
-        }
-    }
-
-@-webkit-keyframes laser { 
-    0% {
-        -ms-transform: translate(4px, 0px)
-        }
-
-    100% {
-        -ms-transform: translate(-1000px, 0px)
-        }
-    }
-
-@keyframes laser { 
-    0% {
-        transform: translate(4px, 0px)
-        }
-
-    100% {
-        transform: translate(-1000px, 0px)
-        }
+#endpoint {
+  background-color: orange;
+  width: 10px;
+  height: 10px;
+  border-radius: 4px;
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  margin: -3px -3px;
+  pointer-events: none;
+  z-index: 999;
 }
-*/
-    #laser {
-      /*background-color: green;
-      z-index: 9;
-      width: 4px;
-      height: 4px;
-      position: absolute;
-      left: 40px;
-      top: 40px;*/
-      transform-origin: top left;
-      position: absolute;
 
-      box-shadow: rgb(255, 0, 0) 0px 0px 5px 1px;
-      opacity: 0.7;
-      perspective-origin: 45px 3px;
-      /*transform: matrix(1, 0, 0, 1, -708.192, 0);
-      transform-origin: 45px 3px;*/
-      background: rgb(255, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
-      border-radius: 30% 70% 70% 30%;
-      font: normal normal normal normal 16px / normal "Times New Roman";
-      height: 10px;
-    }
+#endpoint.big-end {
+  width: 20px;
+  height: 20px;
+  margin: -6px -6px;
+  border-radius: 8px;
+}
 
-    #endpoint {
-      display: none;
-      background-color: orange;
-      z-index: 9;
-      width: 4px;
-      height: 4px;
-      position: absolute;
-      left: 1px;
-      top: 1px;
-    }
+#endpoint.big {
+  animation: burn 1.5s linear infinite alternate,
+             fire-big 3s linear 1 alternate;
+  -webkit-animation: burn 1.5s linear infinite alternate,
+             fire-big 3s linear 1 alternate; 
+}
+
+#bill .bill-pic {
+  background-color: white;
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 3px;
+}
+
+.bill-pic.deleted {
+  display: none;
+}
+
+.page-burn {
+  animation: burn 1.5s linear infinite alternate,
+             page-burn 3s linear 1 alternate;
+  -webkit-animation: burn 1.5s linear infinite alternate,
+             page-burn 3s linear 1 alternate;; 
+}
+
  </style>
 
  <script>
@@ -191,8 +271,8 @@ h2 > b {
       "left": x+"px"
     });
     // appear to be more closely on the cursor
-    x += 4;
-    y -= 2;
+    x += 8;
+    //y -= 2;
     var dx = (x-left);
     var dy = (y-top);
     console.debug("DX", dx, "DY", dy);
@@ -205,21 +285,62 @@ h2 > b {
     })
   }
   document.onmousemove = moveHandler;
+
+  addPages = function() {
+    for(var i=0; i<66; i++) {
+      $("section#bill").append("<img src='ahca/ahca-"+i+".png' class='bill-pic' data-id='"+i+"' />")
+    }
+    var billstat = Array(67).fill(0);
+    var billint = Array(67).fill(0);
+    var billcur = -1;
+    $("section#bill .bill-pic").hover(function() {
+      var id = parseInt($(this).attr("data-id"));
+      $(this).addClass("page-burn");
+      $(this).css({"animation-play-state": "running"});
+      $("#endpoint").addClass("big");
+      if(billint[id]) clearInterval(billint[id]);
+      var $t = $(this);
+      billcur = id;
+      billint[id] = setInterval(function() {
+        billstat[id] += 25;
+        /*$t.css({"opacity": 1 - (billstat[id]/100) });
+        var c = 255 - billstat[id] * (255/100);
+        $t.css({"background-color": "rgb(255,"+c+","+c+")"});*/
+        if(billstat[id] >= 100) {
+          clearInterval(billint[id]);
+          $t.addClass("deleted");
+          console.debug(id, "deleted", billstat[id]);
+        }
+      }, (3000/100) * 25);
+    }, function() {
+      var id = parseInt($(this).attr("data-id"));
+      $(this).css({"animation-play-state": "paused"});
+      // $(this).removeClass("page-burn");
+      $("#endpoint").removeClass("big");
+      if(billint[id]) clearInterval(billint[id]);
+      $("#endpoint").removeClass("big");
+    })
+  }
+
+  addPages();
  })
  </script>
 
 </head>
 <body>
   <div id="ryan"></div>
-  <div id="laser"></div>
+  <div id="laser" class=""></div>
   <div id="eyes"></div>
-  <div id="endpoint"></div>
+  <div id="endpoint" class="bg-burn"></div>
 
 
   <div id="content">
-    <h1>RYANCARE</h1>
+    <h1 class="text-burn">RYANCARE</h1>
     <h3>The American Health Care Act</h3>
     <h2>brought to you by <b>PAUL RYAN</b> and the <b>REPUBLICAN PARTY</b></h2>
+
+    <section id="bill">
+    </section>
   </div>
 </body>
 </html>
