@@ -279,6 +279,25 @@ h2 > b {
   box-sizing: border-box;
 }
 
+#number-destroyed {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  width: 30%;
+  text-align: center;
+  background-color: rgba(255,255,255,0.7);
+  height: 20%;
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+#number-destroyed span {
+  font-family: 'Changa One', cursive;
+  font-size: 70px;
+  margin-top: 10px;
+}
+
 
  </style>
 
@@ -357,16 +376,18 @@ h2 > b {
       var $t = $(this);
       billcur = id;
       billint[id] = setInterval(function() {
-        billstat[id] += 25;
+        billstat[id] += 10;
         /*$t.css({"opacity": 1 - (billstat[id]/100) });
         var c = 255 - billstat[id] * (255/100);
         $t.css({"background-color": "rgb(255,"+c+","+c+")"});*/
         if(billstat[id] >= 100) {
           clearInterval(billint[id]);
           $t.addClass("deleted");
+          $("#explosion")[0].play();
+          updateNumber();
           //console.debug(id, "deleted", billstat[id]);
         }
-      }, (3000/100) * 25);
+      }, (3000/100) * 10);
     }, function() {
       var id = parseInt($(this).attr("data-id"));
       $(this).css({"animation-play-state": "paused"});
@@ -374,6 +395,12 @@ h2 > b {
       $("#endpoint").removeClass("big");
       if(billint[id]) clearInterval(billint[id]);
     })
+  }
+
+  updated_number = 0;
+  updateNumber = function() {
+    $("#number-destroyed").show();
+    $("#number-destroyed span").html(++updated_number);
   }
 
   addPages();
@@ -403,6 +430,10 @@ h2 > b {
   <div id="laser" class=""></div>
   <div id="eyes"></div>
   <div id="endpoint" class="bg-burn"></div>
+  <div id="number-destroyed">
+    PAGES OF OBAMACARE DESTROYED:<br />
+    <span>0</span>
+  </div>
 
 
   <div id="content">
@@ -425,6 +456,11 @@ h2 > b {
   <audio autoplay preload controls=0 loop="loop" style="display: none">
     <source src="ryancare.ogg" type="audio/ogg" />
     <source src="ryancare.mp3" type="audio/mpeg" />
+  </audio>
+
+  <audio preload controls=0 style="display: none" id="explosion">
+    <source src="explosion.ogg" type="audio/ogg" />
+    <source src="explosion.wav" type="audio/wav" />
   </audio>
 
 
